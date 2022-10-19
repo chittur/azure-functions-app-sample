@@ -91,7 +91,6 @@ namespace ServerlessFuncUnitTesting
             Logger.LogMessage("Delete the entity.");
             await _restClient.DeleteEntityAsync(postEntity?.Id);
 
-
             // Validate.
             // Trying to get the entity should throw an exception.
             try
