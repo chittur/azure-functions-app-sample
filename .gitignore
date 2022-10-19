@@ -6,6 +6,3 @@
 TestResults/
 .vs/
 *.suo
-/ServerlessFuncUnitTesting/bin/Debug/net6.0/testhost.exe
-/ServerlessFuncUnitTesting/bin/Debug/net6.0
-/ServerlessFuncUnitTesting/obj/Debug/net6.0

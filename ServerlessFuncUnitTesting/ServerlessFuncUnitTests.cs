@@ -13,7 +13,6 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 using ServerlessFunc;
-using System.Net;
 
 namespace ServerlessFuncUnitTesting
 {
@@ -78,37 +77,6 @@ namespace ServerlessFuncUnitTesting
             Entity? getEntity = await _restClient.GetEntityAsync(postEntity?.Id);
             Assert.AreEqual(updatedEntity?.Id, getEntity?.Id);
             Assert.AreEqual(updatedEntity?.Name, getEntity?.Name);
-        }
-
-        [TestMethod]
-        public async Task TestDeleteEntity()
-        {
-            // Create an entity.
-            Logger.LogMessage("Create an entity.");
-            Entity? postEntity = await _restClient.PostEntityAsync("First");
-
-            // Delete the entity.
-            Logger.LogMessage("Delete the entity.");
-            await _restClient.DeleteEntityAsync(postEntity?.Id);
-
-
-            // Validate.
-            // Trying to get the entity should throw an exception.
-            try
-            {
-                // Get the entity.
-                Logger.LogMessage("Getting the entity.");
-                Entity? getEntity = await _restClient.GetEntityAsync(postEntity?.Id);
-                Assert.Fail("Trying to get a deleted entity did not throw an exception.");
-            }
-            catch (HttpRequestException httpEx) when (httpEx.StatusCode == HttpStatusCode.NotFound)
-            {
-                Logger.LogMessage("Rightly got the expected exception trying to get a deleted entity.");
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail("Unexpected exception type.");
-            }
         }
 
         /// <summary>
