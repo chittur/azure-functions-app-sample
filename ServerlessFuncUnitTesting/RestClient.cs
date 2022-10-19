@@ -119,7 +119,7 @@ namespace ServerlessFuncUnitTesting
         /// </summary>
         /// <param name="id"></param>
         /// <returns>A Task.</returns>
-        public async Task DeleteEntityAsync(string id)
+        public async Task DeleteEntityAsync(string? id)
         {
             using HttpResponseMessage response = await _entityClient.DeleteAsync(_url + $"/{id}");
             response.EnsureSuccessStatusCode();
