@@ -1,5 +1,5 @@
 ﻿/******************************************************************************
- * Filename    = EntityApiFunctions.cs
+ * Filename    = RestClient.cs
  *
  * Author      = Ramaswamy Krishnan-Chittur
  *
